@@ -814,7 +814,7 @@ int DirectoryExists(const char *path) {
 	#define FFTW_DIR				"src/extern/fftw-3.3.10/"
 	#define FFTW_BIN_NAME			"libfftw3.a"
 	#define FFTW_BIN_PATH			FFTW_DIR".libs/"FFTW_BIN_NAME
-	#define FFTW_BUILD_COMMAND		"cd "FFTW_DIR" && ./configure && make install"
+	#define FFTW_BUILD_COMMAND		"cd "FFTW_DIR" && ./configure && make"
 
 	#define	MACOS_FRAMEWORKS	"-framework CoreVideo		\
 								-framework CoreAudio		\
@@ -894,6 +894,13 @@ void BuildRule(void)
 		LOG_INFO(COLOR_GREEN""EXECNAME" successfully built!"COLOR_RESET);
 }
 
+void CleanRule(void)
+{
+	LOG_INFO(COLOR_YELLOW"Cleaning..."COLOR_RESET);
+	ExecuteCommand(CreateCommand("rm -f "RAYLIB_BIN_PATH));
+	ExecuteCommand(CreateCommand("rm -f "FFTW_BIN_PATH));
+}
+
 void ExecRule(void)
 {
 	Command *execCommand = CreateCommand();
@@ -911,6 +918,7 @@ int main(int argc, char **argv)
 
 	CreateRule("build", BuildRule);
 	CreateRule("exec", ExecRule);
+	CreateRule("clean", CleanRule);
 
 	CreateRule("build-raylib", BuildRaylib);
 	CreateRule("build-fftw", BuildFFTW);
