@@ -830,7 +830,7 @@ int DirectoryExists(const char *path) {
 								-framework Carbon,			\
 								-framework AVFoundation"
 
-	#define LDFLAGS		"-I"RAYLIB_DIR" -I"FFTW_DIR"/api/ "MACOS_FRAMEWORKS
+	#define LDFLAGS		"-I"RAYLIB_DIR" -I"FFTW_DIR"api/ "MACOS_FRAMEWORKS
 #elif defined(PLATFORM_LINUX)
 	#define EXECNAME	"Game"
 	#define CC			"cc"
