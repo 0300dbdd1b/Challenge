@@ -809,7 +809,7 @@ int DirectoryExists(const char *path) {
 	#define RAYLIB_DIR				"src/extern/raylib-5.5/src/"
 	#define	RAYLIB_BIN_NAME			"libraylib.a"
 	#define RAYLIB_BIN_PATH			RAYLIB_DIR RAYLIB_BIN_NAME
-	#define RAYLIB_BUILD_COMMAND	"cd "RAYLIB_DIR" && make PLATFORM_DESKTOP"
+	#define RAYLIB_BUILD_COMMAND	"cd "RAYLIB_DIR" && make PLATFORM=PLATFORM_DESKTOP"
 
 	#define FFTW_DIR				"src/extern/fftw-3.3.10/"
 	#define FFTW_BIN_NAME			"libfftw3.a"
